@@ -11,45 +11,60 @@
         <script type="text/processing">
 
                         // Write your project here
-            float theta = 0;
-
-void setup() {
-  size(480, 270);
+           float raggio;
+float terraX, terraY;
+float s;
+void setup () {
+size(900, 600);
+terraX=200;
+terraY=0;
+s=0;
 }
 
 void draw() {
-  background(255);
-  stroke(0);
-
-  // 
+  background(0);
+  pushMatrix();
   translate(width/2, height/2);
-  fill(255, 200, 50);
-  ellipse(0, 0, 64, 64);
-
-  // terra
-  pushMatrix();
-  rotate(theta);
-  translate(100, 0);
-  fill(50, 200, 255);
-  ellipse(0, 0, 32, 32);
-
+  rotate(radians(raggio));
+  
+  //sole
+  fill(255, 255, 0);
+  ellipse(0, 0, 100, 100);
  
-  pushMatrix(); 
-  rotate(-theta*4);
-  translate(36, 0);
-  fill(50, 255, 200);
-  ellipse(0, 0, 12, 12);
+ //venere
+pushMatrix();
+rotate(s);
+translate(100, 0);
+fill(245,245,150);
+ellipse(0, 0, 7, 7);
   popMatrix();
-
-  // luna2
+  
+//marte
+pushMatrix();
+rotate(s);
+translate(130, 0);
+fill(255,0,0);
+ellipse(0, 0, 10, 10);
+  popMatrix();
+  
+  //terra
+  fill(0, 0, 255);
+  ellipse(terraX, terraY, 20, 20);
   pushMatrix();
-  rotate(theta*2);
-  translate(24, 0);
-  fill(50, 255, 200);
-  ellipse(0, 0, 6, 6);
-  popMatrix();
 
+  //luna
+  translate(terraX, terraY);
+  rotate(radians(-raggio*3));
+  fill(255);
+  ellipse(25, terraY, 5, 5);
   popMatrix();
-
-  theta += 0.01;
+  
+    
+  popMatrix();
+  raggio +=1;
 }
+            
+        </script>
+        <canvas></canvas>
+    </body>
+</html>
