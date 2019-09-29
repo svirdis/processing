@@ -10,49 +10,46 @@
         <h1>Processing project by Sara Virdis</h1>
         <script type="text/processing">
 
-            void setup() {
-  size(220, 220);
-  smooth();
+                        // Write your project here
+            float theta = 0;
+
+void setup() {
+  size(480, 270);
 }
 
 void draw() {
-  background(242, 147,22);
+  background(255);
+  stroke(0);
 
-  translate(width / 2, height / 2);
-  
-  // clock circle
-  strokeWeight(2);
-  fill(240,204,140);
-  ellipse(0, 0, 200, 200);
-  
-  // seconds
-  strokeWeight(1);
-  // degrees divided by number of second marks per round
-  float radSec = 360 / 60 * second();
+  // 
+  translate(width/2, height/2);
+  fill(255, 200, 50);
+  ellipse(0, 0, 64, 64);
+
+  // terra
   pushMatrix();
-  rotate(radians(radSec));
-  line(0, 0, 0, -95);
+  rotate(theta);
+  translate(100, 0);
+  fill(50, 200, 255);
+  ellipse(0, 0, 32, 32);
+
+ 
+  pushMatrix(); 
+  rotate(-theta*4);
+  translate(36, 0);
+  fill(50, 255, 200);
+  ellipse(0, 0, 12, 12);
   popMatrix();
-  
-  // minutes
-  strokeWeight(2);
-  float radMin = 360 / 60 * minute();
+
+  // luna2
   pushMatrix();
-  rotate(radians(radMin));
-  line(0, 0, 0, -90);
+  rotate(theta*2);
+  translate(24, 0);
+  fill(50, 255, 200);
+  ellipse(0, 0, 6, 6);
   popMatrix();
-  
-  // hours
-  strokeWeight(4);
-  float radHour = 360 / 12 * hour();
-  pushMatrix();
-  rotate(radians(radHour));
-  line(0, 0, 0, -50);
+
   popMatrix();
-} 
+
+  theta += 0.01;
 }
-            
-        </script>
-        <canvas></canvas>
-    </body>
-</html>
